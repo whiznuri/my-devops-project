@@ -4,7 +4,8 @@
   "description": "End-to-End DevOps Master Plan: Dev, Ops, IaC, CI/CD Pipeline, and Business Monitoring Simulation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,8 @@
   "homepage": "https://github.com/whiznuri/my-devops-project#readme",
   "dependencies": {
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
