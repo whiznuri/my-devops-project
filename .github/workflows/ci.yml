@@ -1,0 +1,28 @@
+name: Build and Test Docker Image
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository code
+      uses: actions/checkout@v4
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Build Docker Image
+      run: |
+        docker build -t my-devops-api:latest .
+
+    - name: Verify Docker Container Runs
+      run: |
+        docker run -d -p 3000:3000 --name test-container my-devops-api:latest
+        sleep 5
+        docker ps | grep test-container
